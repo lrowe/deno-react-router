@@ -1,5 +1,31 @@
 {
   "imports": {
-    "react-dom/server": "./node_modules/react-dom/server.node.js"
+    "~/": "./app/",
+    "react-dom/server": "./node_modules/react-dom/server.node.js",
+    "virtual:react-router/server-build": "./.react-router/types/+server-build.d.ts"
+  },
+  "unstable": [
+    "sloppy-imports"
+  ],
+  "lint": {
+    "exclude": ["./.react-router/types"],
+    "rules": {
+      "exclude": [
+        "no-sloppy-imports"
+      ]
+    }
+  },
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": [
+      "vite/client"
+    ],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
+    ]
   }
 }
